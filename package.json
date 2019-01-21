@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/MariaManiccia/ConstructorWordGuess/issues"
   },
-  "homepage": "https://github.com/MariaManiccia/ConstructorWordGuess#readme"
+  "homepage": "https://github.com/MariaManiccia/ConstructorWordGuess#readme",
+  "dependencies": {
+    "inquirer": "^6.2.1"
+  },
+  "devDependencies": {}
 }
