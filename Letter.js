@@ -1,5 +1,5 @@
 
-// function to create the underscores
+// function to determine if the letter is correct or not
 function Letter(letter) {
 
     // grabbing the letters guessed

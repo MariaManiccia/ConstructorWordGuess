@@ -18,7 +18,7 @@ inquirer
         // start the game
         if (answer === "yes") {
             console.log("Okay!");
-            startGame();
+            game();
         }
 
         // end the game
@@ -27,15 +27,33 @@ inquirer
         }
     });
 
-// function to start the game
-function startGame() {
 
-    // create the words
-    var wordArr = ["Beyonce", "Blue Ivy", "Jay", "Rumi", "Sir"];
+// create the words
+var wordArr = ["Beyonce", "Blue Ivy", "Jay", "Rumi", "Sir"];
 
-    // pick a word in the array
-    choosenWord = wordArr[Math.floor(Math.random() * wordArr.length)];
+// pick a word in the array
+choosenWord = wordArr[Math.floor(Math.random() * wordArr.length)];
+
+
+// function to start/continue the game
+function game() {
 
     console.log(choosenWord);
 
+    inquirer
+        .prompt([
+            {
+                name: "response",
+                message: "Guess a letter: ",
+            }
+        ])
+        .then(answers => {
+
+            let guess = answers.response;
+            console.log(guess);
+
+        })
 }
+
+
+module.exports = game;
