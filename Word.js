@@ -1,9 +1,3 @@
 
-// make an array of words to guess
-let wordArr = [
-    "Beyonce",
-    "Jay",
-    "Blue",
-    "Rumi",
-    "Sir"
-];
+// to communicate with Letter.js
+let Letter = require("./Letter");

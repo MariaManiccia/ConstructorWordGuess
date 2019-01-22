@@ -1,8 +1,6 @@
 // to begin the game
 
-var inquirer = require('inquirer');
-
-//let response = process.argv[3];
+const inquirer = require('inquirer');
 
 // ask to start the game
 inquirer
@@ -20,6 +18,7 @@ inquirer
         // start the game
         if (answer === "yes") {
             console.log("Okay!");
+            startGame();
         }
 
         // end the game
@@ -27,3 +26,16 @@ inquirer
             console.log("Okay! Maybe another time.");
         }
     });
+
+// function to start the game
+function startGame() {
+
+    // create the words
+    var wordArr = ["Beyonce", "Blue Ivy", "Jay", "Rumi", "Sir"];
+
+    // pick a word in the array
+    choosenWord = wordArr[Math.floor(Math.random() * wordArr.length)];
+
+    console.log(choosenWord);
+
+}
