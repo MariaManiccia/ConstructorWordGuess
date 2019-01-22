@@ -17,7 +17,7 @@ function Letter(letter) {
     };
 
     // checking the letter to see if it's used    
-    this.compare = function () {
+    this.check = function () {
 
         if (guessed.toLowerCase() === this.letter.toLowerCase()) {
 
