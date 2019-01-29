@@ -1,33 +1,35 @@
+function Letter(char) {
 
-// function to determine if the letter is correct or not
-function Letter(letter) {
+    // grab the lettr
+    this.character = char.toString();
+    //if the letter is correct or not
+    this.guessed = false;
 
-    // grabbing the letters guessed
-    this.letter = letter;
-    this.guess = false;
-
-    // return either the letter or an underscore
-    this.placeholder = function () {
-        if (this.guess) {
-            return this.letter;
-        }
-        else {
+    // to display
+    this.displayer = function () {
+        // if the letter is in the work
+        if (this.guessed === true) {
+            return this.character;
+        
+        } 
+        // if not, put the placeholder
+        else if (this.guessed !== true) {
             return "_";
         }
-    };
+    }
 
-    // checking the letter to see if it's used    
-    this.check = function () {
-
-        if (guessed.toLowerCase() === this.letter.toLowerCase()) {
-
-            this.guess = true;
-            this.placeholder();
+    // checking to see if the letter is in the word
+    this.checker = function (input) {
+        // making them lower case
+        var inputLower = input.toLowerCase();
+        var characterLower = this.character.toLowerCase();
+        // if the are equal to each other
+        if (inputLower === characterLower) {
+            this.guessed = true;
+            return true;
         }
-        else {
-
-            this.placeholder();
-        }
+        
+        return false;
     }
 }
 
