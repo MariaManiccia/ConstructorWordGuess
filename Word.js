@@ -42,15 +42,11 @@ function Word(chosenWord) {
     }
     // to check if the word is complete
     this.completed = function () {
-
-        let wordCompleted = true;
-
-        for (var i = 0; i < letArr.length; i++) {
-
-            wordCompleted = letArr[i].guessed;
+        var wordCompleted = true;
+        for (var i = 0; i < wordSplit.length; i++) {
+            wordCompleted = wordSplit[i].guessed;
             if (!wordCompleted) return wordCompleted;
         }
-
         return wordCompleted;
     }
 }
