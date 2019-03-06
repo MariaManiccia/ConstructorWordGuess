@@ -1,54 +1,58 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable func-names */
+/* eslint-disable no-plusplus */
+/* eslint-disable linebreak-style */
 // to communicate with Letter.js
-const Letter = require("./letter");
+const Letter = require('./Letter');
 
 // Word constructor to split the word up and check it
 function Word(chosenWord) {
-    // split up the word
-    var letArr = chosenWord.split("");
-    var wordSplit = [];
+  // split up the word
+  const letArr = chosenWord.split('');
+  const wordSplit = [];
 
-    for (var i = 0; i < letArr.length; i++) {
-        // push it throught the Letter constructor
-        wordSplit.push(new Letter(letArr[i]));
+  for (let i = 0; i < letArr.length; i++) {
+    // push it throught the Letter constructor
+    wordSplit.push(new Letter(letArr[i]));
+  }
+  // how to display
+  this.wordDisplay = function () {
+
+    let wordAppear = '';
+
+    for (let i = 0; i < wordSplit.length; i++) {
+      wordAppear += `${wordSplit[i].displayer()} `;
     }
-    // how to display
-    this.wordDisplay = function () {
 
-        let wordAppear = "";
+    return wordAppear.trim();
+  };
+  // checking the letter
+  this.guessChecker = function (char) {
 
-        for (var i = 0; i < wordSplit.length; i++) {
-            wordAppear += wordSplit[i].displayer() + " ";
-        }
+    let trueCount = 0;
 
-        return wordAppear.trim();
+    for (let i = 0; i < wordSplit.length; i++) {
+      const placeholder = wordSplit[i].checker(`${char}`);
+      if (placeholder) {
+        trueCount++;
+      }
     }
-    // checking the letter
-    this.guessChecker = function (char) {
 
-        var trueCount = 0;
-
-        for (var i = 0; i < wordSplit.length; i++) {
-            var placeholder = wordSplit[i].checker(char + "");
-            if (placeholder) {
-                trueCount++;
-            }
-        }
-
-        if (trueCount > 0) {
-            return true;
-        }
-
-        return false;
+    if (trueCount > 0) {
+      return true;
     }
-    // to check if the word is complete
-    this.completed = function () {
-        var wordCompleted = true;
-        for (var i = 0; i < wordSplit.length; i++) {
-            wordCompleted = wordSplit[i].guessed;
-            if (!wordCompleted) return wordCompleted;
-        }
-        return wordCompleted;
+
+    return false;
+  };
+  // to check if the word is complete
+  this.completed = function () {
+    let wordCompleted = true;
+    for (let i = 0; i < wordSplit.length; i++) {
+      wordCompleted = wordSplit[i].guessed;
+      if (!wordCompleted) return wordCompleted;
     }
+    return wordCompleted;
+  };
 }
 
 module.exports = Word;

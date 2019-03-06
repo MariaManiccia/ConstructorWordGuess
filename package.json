@@ -19,6 +19,7 @@
   "homepage": "https://github.com/MariaManiccia/ConstructorWordGuess#readme",
   "dependencies": {
     "exports": "0.0.1",
+    "import": "0.0.6",
     "inquirer": "^6.2.1"
   },
   "devDependencies": {
